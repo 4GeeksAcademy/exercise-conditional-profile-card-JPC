@@ -29,18 +29,33 @@ function render(variables = {}) {
   let cover = `<div class="cover"><img src="${variables.background}" /></div>`;
   if (variables.includeCover == false) cover = "<div class='cover'></div>";
 
+  let twitter = "";
+  if (variables.twitter != null) twitter += variables.twitter + " ";
+  let github = "";
+  if (variables.github != null) github += variables.github + " ";
+  let linkedin = "";
+  if (variables.twitter != null) linkedin += variables.linkedin + " ";
+  let instagram = "";
+  if (variables.twitter != null) instagram += variables.instagram + " ";
+
+  variables.avatarURL =
+    "https://avatars.githubusercontent.com/u/40275118?s=400&u=43c1eb3ec8f48aa8edca3d8a97c3c8b7825dbb12&v=4";
+
+  variables.background =
+    "https://www.comunidadbaratz.com/wp-content/uploads/La-biblioteca-es-inclusion-social-e-igualdad-de-oportunidades.jpg";
+
   // reset the website body with the new html output
   document.querySelector("#widget_content").innerHTML = `<div class="widget">
             ${cover}
           <img src="${variables.avatarURL}" class="photo" />
-          <h1>Lucy Boilett</h1>
-          <h2>Web Developer</h2>
-          <h3>Miami, USA</h3>
-          <ul class="position-right">
-            <li><a href="https://twitter.com/4geeksacademy"><i class="fab fa-twitter"></i></a></li>
-            <li><a href="https://github.com/4geeksacademy"><i class="fab fa-github"></i></a></li>
-            <li><a href="https://linkedin.com/school/4geeksacademy"><i class="fab fa-linkedin"></i></a></li>
-            <li><a href="https://instagram.com/4geeksacademy"><i class="fab fa-instagram"></i></a></li>
+          <h1>${variables.name} ${variables.lastName}</h1>
+          <h2>${variables.role}</h2>
+          <h3>${variables.city}, ${variables.country}</h3>
+          <ul class="${variables.socialMediaPosition}">
+            <li><a href="https://x.com/jumpvzl"><i class="fab fa-twitter"></i></a>${twitter}</li>
+            <li><a href="https://github.com/Jumpvzl"><i class="fab fa-github"></i></a>${github}</li>
+            <li><a href="https://www.linkedin.com/in/juanpablocastillo-seguridadinformatica/"><i class="fab fa-linkedin"></i></a>${linkedin}</li>
+            <li><a href="https://www.instagram.com/jumpvzl/"><i class="fab fa-instagram"></i></a>${instagram}</li>
           </ul>
         </div>
     `;
