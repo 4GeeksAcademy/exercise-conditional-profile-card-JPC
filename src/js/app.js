@@ -29,14 +29,11 @@ function render(variables = {}) {
   let cover = `<div class="cover"><img src="${variables.background}" /></div>`;
   if (variables.includeCover == false) cover = "<div class='cover'></div>";
 
-  let twitter = "";
-  if (variables.twitter != null) twitter += variables.twitter + " ";
-  let github = "";
-  if (variables.github != null) github += variables.github + " ";
-  let linkedin = "";
-  if (variables.twitter != null) linkedin += variables.linkedin + " ";
-  let instagram = "";
-  if (variables.twitter != null) instagram += variables.instagram + " ";
+  if (variables.name == null) variables.name = "Your Name";
+  if (variables.lastName == null) variables.lastName = "LastName";
+  if (variables.country == null) variables.country = "Country";
+  if (variables.city == null) variables.city = "City";
+  if (variables.role == null) variables.role = "Role";
 
   variables.avatarURL =
     "https://avatars.githubusercontent.com/u/40275118?s=400&u=43c1eb3ec8f48aa8edca3d8a97c3c8b7825dbb12&v=4";
@@ -52,10 +49,10 @@ function render(variables = {}) {
           <h2>${variables.role}</h2>
           <h3>${variables.city}, ${variables.country}</h3>
           <ul class="${variables.socialMediaPosition}">
-            <li><a href="https://x.com/jumpvzl"><i class="fab fa-twitter"></i></a>${twitter}</li>
-            <li><a href="https://github.com/Jumpvzl"><i class="fab fa-github"></i></a>${github}</li>
-            <li><a href="https://www.linkedin.com/in/juanpablocastillo-seguridadinformatica/"><i class="fab fa-linkedin"></i></a>${linkedin}</li>
-            <li><a href="https://www.instagram.com/jumpvzl/"><i class="fab fa-instagram"></i></a>${instagram}</li>
+            <li><a href="https://x.com/${variables.twitter}"><i class="fab fa-twitter"></i></a></li>
+            <li><a href="https://github.com/${variables.github}"<i class="fab fa-github"></i></a></li>
+            <li><a href="https://linkedin.com/${variables.linkedin}"><i class="fab fa-linkedin"></i></a></li>
+            <li><a href="https://instagram.com/${variables.instagram}"><i class="fab fa-instagram"></i></a></li>
           </ul>
         </div>
     `;
